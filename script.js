@@ -2,11 +2,12 @@ console.log("hello world!")
 
 const myLibrary = [];
 
-function Book(author, title, pages, read) {
+function Book(author, title, pages, read, id) {
     this.author = author;
     this.title = title;
     this.pages = pages;
     this.read = read;
+    this.id = crypto.randomUUID();
 }
 
 
@@ -14,10 +15,12 @@ const tbp = new Book("Cixin Liu", "Three Body Problem", 528, true);
 const hmp = new Book("Andy Weir", "Hail Merry Project", 488, true);
 const childrenOfMem = new Book("Adrian Tchaikovsy", "Children of Memory", 467, false);
 
-console.log(tbp);
-console.log(hmp);
-console.log(childrenOfMem);
+myLibrary.push(tbp, hmp, childrenOfMem);
 
-function addBookToLibrary(book) {
+console.log(myLibrary);
 
+function addBookToLibrary(book, author, title, pages, read) {
+    newBook = new book(author, title, pages, read)
+    myLibrary.push(newBook);
 }
+
