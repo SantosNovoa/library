@@ -2,7 +2,7 @@ console.log("hello world!")
 
 const myLibrary = [];
 
-function Book(author, title, pages, read, id) {
+function Book(author, title, pages, read) {
     this.author = author;
     this.title = title;
     this.pages = pages;
