@@ -1,0 +1,23 @@
+body {
+    background-color: #212327;
+    margin: 0;
+    color: white;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .header {
+    text-align: center;
+    padding: 20px;
+    background-color: #161b22;
+  }
+
+
+  .footer {
+    position: fixed;
+    text-align: center;
+    font-size: 16px;
+    background-color: #161b22;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+  }
