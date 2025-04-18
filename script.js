@@ -12,15 +12,23 @@ function Book(author, title, pages, read) {
 
 
 const tbp = new Book("Cixin Liu", "Three Body Problem", 528, true);
-const hmp = new Book("Andy Weir", "Hail Merry Project", 488, true);
+const hmp = new Book("Andy Weir", "Project Hail Mary", 488, true);
 const childrenOfMem = new Book("Adrian Tchaikovsy", "Children of Memory", 467, false);
 
 myLibrary.push(tbp, hmp, childrenOfMem);
-
-console.log(myLibrary);
 
 function addBookToLibrary(book, author, title, pages, read) {
     newBook = new book(author, title, pages, read)
     myLibrary.push(newBook);
 }
 
+
+
+// function that loops through the mylibrary array and outputs the value of the key
+function testFunction(key) {
+    for (let value in key) {
+        console.log("\n" + key[value])
+    }
+}
+
+myLibrary.forEach(testFunction);
