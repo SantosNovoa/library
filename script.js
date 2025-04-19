@@ -1,6 +1,16 @@
 console.log("hello world!");
 
 const table = document.querySelector(".table");
+const removeBtn = document.querySelectorAll("button");
+const addBookBtn = document.querySelector(".add-book");
+const modal = document.getElementById("myModal");
+console.log(removeBtn)
+console.log(addBookBtn)
+
+
+addBookBtn.onclick = function() {
+    modal.style.display = "block";
+}
 // const newRow = document.createElement("tr");
 // const author = document.createElement("td");
 // const title = document.createElement("td");
@@ -50,31 +60,37 @@ renderBook(phm);
 renderBook(childrenOfMem);
 
 function renderBook(element) {
-  element;
   const newRow = document.createElement("tr");
 
   //append the author to the table
   const author = document.createElement("td");
   author.textContent = element.author;
   newRow.appendChild(author);
-  table.appendChild(newRow);
 
   //append the title to the table
   const title = document.createElement("td");
   title.textContent = element.title;
   newRow.appendChild(title);
-  table.appendChild(newRow);
 
   //append to the page count to the table
   const pages = document.createElement("td");
   pages.textContent = element.pages;
   newRow.appendChild(pages);
-  table.appendChild(newRow);
 
   //append if read or not to the table
+  const readBtn = document.createElement("button");
+  //add a read button to the read th
+  //button's text content read if true not read if false
+  readBtn.textContent = element.read === true ? "Read" : "Not read";
   const read = document.createElement("td");
-  read.textContent = element.read;
+  read.appendChild(readBtn);
   newRow.appendChild(read);
+
+  const removeBtn = document.createElement("button");
+  removeBtn.textContent = 'Remove';
+  const remove = document.createElement("td");
+  remove.appendChild(removeBtn);
+  newRow.appendChild(remove);
   table.appendChild(newRow);
 }
 
