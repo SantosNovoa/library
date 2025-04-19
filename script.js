@@ -90,15 +90,20 @@ function renderBook(element) {
   //button's text content read if true not read if false
   readBtn.textContent = element.read === true ? "Read" : "Not read";
   const read = document.createElement("td");
+  read.classList = "read";
   read.appendChild(readBtn);
   newRow.appendChild(read);
 
   const removeBtn = document.createElement("button");
   removeBtn.textContent = "Remove";
   const remove = document.createElement("td");
+  remove.classList = "remove";
   remove.appendChild(removeBtn);
   newRow.appendChild(remove);
   table.appendChild(newRow);
+
+
+  
 }
 
 // myLibrary.forEach((element) => {
