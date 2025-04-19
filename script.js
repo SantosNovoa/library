@@ -124,6 +124,10 @@ function renderBook(element) {
   readBtn.addEventListener("click", function () {
     toggleRead(element, readBtn);
   });
+
+//   removeBtn.addEventListener("click", function () {
+//     removeBook(0);
+//   })
 }
 
 function toggleRead(book, buttonElement) {
@@ -144,10 +148,14 @@ function submitForm(e) {
     const author = authorValue.value;
     const title = titleValue.value;
     const pages = pagesValue.value;
-    const read = readValue.value;
+    const read = readValue.checked;
     addBookToLibrary(Book, author, title, pages, read);
     form.reset();
  }
+
+//  function removeBook (index) {
+//     myLibrary.splice(index, 1);
+// };
 
 // myLibrary.forEach((element) => {
 
