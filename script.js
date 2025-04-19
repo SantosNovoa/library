@@ -4,6 +4,16 @@ const table = document.querySelector(".table");
 const removeBtn = document.querySelectorAll("button");
 const addBookBtn = document.querySelector(".add-book");
 const modal = document.getElementById("myModal");
+const authorValue = document.getElementById("author");
+const titleValue = document.getElementById("title");
+const pagesValue = document.getElementById("pages");
+const readValue = document.getElementById("read");
+const form = document.getElementById("book-form");
+form.addEventListener("submit", submitForm);
+const addBtn = document.querySelector(".add-button")
+addBtn.onclick = function () {
+    modal.style.display = "none";
+}
 console.log(removeBtn);
 console.log(addBookBtn);
 
@@ -103,7 +113,8 @@ function renderBook(element) {
   newRow.appendChild(read);
 
   const removeBtn = document.createElement("button");
-  removeBtn.textContent = "Remove";
+  removeBtn.classList = "removeBtn"
+  removeBtn.textContent = "🗑️";
   const remove = document.createElement("td");
   remove.classList = "remove"
   remove.appendChild(removeBtn);
@@ -127,6 +138,16 @@ function toggleRead(book, buttonElement) {
     buttonElement.classList.add("not-read");
   }
 }
+
+function submitForm(e) {
+    e.preventDefault(); // stop page from reloading
+    const author = authorValue.value;
+    const title = titleValue.value;
+    const pages = pagesValue.value;
+    const read = readValue.value;
+    addBookToLibrary(Book, author, title, pages, read);
+    form.reset();
+ }
 
 // myLibrary.forEach((element) => {
 
