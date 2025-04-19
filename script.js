@@ -4,20 +4,19 @@ const table = document.querySelector(".table");
 const removeBtn = document.querySelectorAll("button");
 const addBookBtn = document.querySelector(".add-book");
 const modal = document.getElementById("myModal");
-console.log(removeBtn)
-console.log(addBookBtn)
+console.log(removeBtn);
+console.log(addBookBtn);
 
-
-addBookBtn.onclick = function() {
-    modal.style.display = "block";
-}
+addBookBtn.onclick = function () {
+  modal.style.display = "block";
+};
 
 // when user clicks outside the modal, it'll close
-window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-}
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
 
 // const newRow = document.createElement("tr");
 // const author = document.createElement("td");
@@ -95,7 +94,7 @@ function renderBook(element) {
   newRow.appendChild(read);
 
   const removeBtn = document.createElement("button");
-  removeBtn.textContent = 'Remove';
+  removeBtn.textContent = "Remove";
   const remove = document.createElement("td");
   remove.appendChild(removeBtn);
   newRow.appendChild(remove);
