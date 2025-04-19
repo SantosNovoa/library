@@ -11,6 +11,14 @@ console.log(addBookBtn)
 addBookBtn.onclick = function() {
     modal.style.display = "block";
 }
+
+// when user clicks outside the modal, it'll close
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+}
+
 // const newRow = document.createElement("tr");
 // const author = document.createElement("td");
 // const title = document.createElement("td");
