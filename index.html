@@ -3,11 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Library</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="https://img.icons8.com/color/48/courses.png" type="image/x-icon">
   </head>
   <body>
     <div class="header">Library</div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <form id="book-form">
+                <input type="text" id="author" placeholder="Author" required />
+                <input type="text" id="title" placeholder="Title" required />
+                <input type="number" id="pages" placeholder="Pages" required />
+                <label>
+                  <input type="checkbox" id="read" /> Read
+                </label>
+                <button class="add-button" type="submit">Add</button>
+              </form>
+        </div>
+      
+      </div>
     <div class="table-container">
         <div class="add-book-container">
         <button class="add-book">Add Book</button>
