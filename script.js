@@ -10,10 +10,10 @@ const pagesValue = document.getElementById("pages");
 const readValue = document.getElementById("read");
 const form = document.getElementById("book-form");
 form.addEventListener("submit", submitForm);
-const addBtn = document.querySelector(".add-button")
+const addBtn = document.querySelector(".add-button");
 addBtn.onclick = function () {
-    modal.style.display = "none";
-}
+  modal.style.display = "none";
+};
 console.log(removeBtn);
 console.log(addBookBtn);
 
@@ -79,6 +79,9 @@ renderBook(childrenOfMem);
 function renderBook(element) {
   const newRow = document.createElement("tr");
 
+  //setting the an id to use in the removeBook function
+  newRow.setAttribute("data-id", element.id);
+
   //append the author to the table
   const author = document.createElement("td");
   author.textContent = element.author;
@@ -100,7 +103,7 @@ function renderBook(element) {
   //button's text content read if true not read if false
   readBtn.textContent = element.read ? "Read" : "Not read";
   const read = document.createElement("td");
-  read.classList = "read-two"
+  read.classList = "read-two";
   readBtn.classList.add("readBtn");
 
   //sets the read buttons to red or green depending on if read or not read
@@ -113,10 +116,10 @@ function renderBook(element) {
   newRow.appendChild(read);
 
   const removeBtn = document.createElement("button");
-  removeBtn.classList = "removeBtn"
+  removeBtn.classList = "removeBtn";
   removeBtn.textContent = "🗑️";
   const remove = document.createElement("td");
-  remove.classList = "remove"
+  remove.classList = "remove";
   remove.appendChild(removeBtn);
   newRow.appendChild(remove);
   table.appendChild(newRow);
@@ -125,9 +128,9 @@ function renderBook(element) {
     toggleRead(element, readBtn);
   });
 
-//   removeBtn.addEventListener("click", function () {
-//     removeBook(0);
-//   })
+  removeBtn.addEventListener("click", function () {
+    removeBook(element.id);
+  });
 }
 
 function toggleRead(book, buttonElement) {
@@ -144,19 +147,27 @@ function toggleRead(book, buttonElement) {
 }
 
 function submitForm(e) {
-    e.preventDefault(); // stop page from reloading
-    const author = authorValue.value;
-    const title = titleValue.value;
-    const pages = pagesValue.value;
-    const read = readValue.checked;
-    addBookToLibrary(Book, author, title, pages, read);
-    form.reset();
- }
+  e.preventDefault(); // stop page from reloading
+  const author = authorValue.value;
+  const title = titleValue.value;
+  const pages = pagesValue.value;
+  const read = readValue.checked;
+  addBookToLibrary(Book, author, title, pages, read);
+  form.reset();
+}
 
-//  function removeBook (index) {
-//     myLibrary.splice(index, 1);
-// };
-
+function removeBook(bookId) {
+  // looping through the book array  where book id equals the parameter passed in the function
+  //when it's found it returns the index of that book then we remove it with splice
+  myLibrary.splice(
+    myLibrary.findIndex((book) => book.id === bookId),
+    1
+  );
+  const rowToRemove = document.querySelector(`tr[data-id="${bookId}"]`);
+  if (rowToRemove) {
+    rowToRemove.remove();
+  }
+}
 // myLibrary.forEach((element) => {
 
 //     const newRow = document.createElement("tr");
