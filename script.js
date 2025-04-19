@@ -88,22 +88,44 @@ function renderBook(element) {
   const readBtn = document.createElement("button");
   //add a read button to the read th
   //button's text content read if true not read if false
-  readBtn.textContent = element.read === true ? "Read" : "Not read";
+  readBtn.textContent = element.read ? "Read" : "Not read";
   const read = document.createElement("td");
-  read.classList = "read";
+  read.classList = "read-two"
+  readBtn.classList.add("readBtn");
+
+  //sets the read buttons to red or green depending on if read or not read
+  if (element.read) {
+    readBtn.classList.add("read");
+  } else {
+    readBtn.classList.add("not-read");
+  }
   read.appendChild(readBtn);
   newRow.appendChild(read);
 
   const removeBtn = document.createElement("button");
   removeBtn.textContent = "Remove";
   const remove = document.createElement("td");
-  remove.classList = "remove";
+  remove.classList = "remove"
   remove.appendChild(removeBtn);
   newRow.appendChild(remove);
   table.appendChild(newRow);
 
+  readBtn.addEventListener("click", function () {
+    toggleRead(element, readBtn);
+  });
+}
 
-  
+function toggleRead(book, buttonElement) {
+  book.read = !book.read;
+  buttonElement.textContent = book.read ? "Read" : "Not read";
+
+  if (book.read) {
+    buttonElement.classList.remove("not-read");
+    buttonElement.classList.add("read");
+  } else {
+    buttonElement.classList.remove("read");
+    buttonElement.classList.add("not-read");
+  }
 }
 
 // myLibrary.forEach((element) => {
